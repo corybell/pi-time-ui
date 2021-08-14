@@ -10,12 +10,12 @@
 	import { onMount } from 'svelte';
 
   const url = 'http://localhost:5000/relay'
-	let photos = [];
+	let relays = [];
 
 	onMount(async () => {
 		const res = await fetch(url);
-		photos = await res.json();
-    console.log(photos)
+		relays = await res.json();
+    console.log(relays)
 	});
 </script>
 
