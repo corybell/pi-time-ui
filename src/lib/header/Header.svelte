@@ -6,11 +6,11 @@
   header {
     display: flex;
     justify-content: space-between;
-    background-color: #9578d3;
+    background-color: var(--primary-color);
   }
 
   h1 {
-    color: white;
+    color: var(--pure-white);
     text-align: center;
   }
 
