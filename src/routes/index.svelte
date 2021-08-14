@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
+  <title>Pi Time</title>
 </svelte:head>
 
 <section>
@@ -17,9 +17,5 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-  }
-
-  h1 {
-    width: 100%;
   }
 </style>
