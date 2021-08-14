@@ -1,4 +1,3 @@
-
 <footer>
   <!-- nothing here -->
 </footer>
@@ -18,4 +17,3 @@
     }
   }
 </style>
-  

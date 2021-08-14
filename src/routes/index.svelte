@@ -2,22 +2,22 @@
   export const prerender = false
 </script>
 
+<script>
+  import { onMount } from "svelte"
+
+  const url = "http://localhost:5000/relay"
+  let relays = []
+
+  onMount(async () => {
+    const res = await fetch(url)
+    relays = await res.json()
+    console.log(relays)
+  })
+</script>
+
 <svelte:head>
   <title>Pi Time</title>
 </svelte:head>
-
-<script>
-	import { onMount } from 'svelte';
-
-  const url = 'http://localhost:5000/relay'
-	let relays = [];
-
-	onMount(async () => {
-		const res = await fetch(url);
-		relays = await res.json();
-    console.log(relays)
-	});
-</script>
 
 <section>
   <h1>This is the home page</h1>

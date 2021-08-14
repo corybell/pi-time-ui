@@ -13,5 +13,4 @@
     color: var(--pure-white);
     text-align: center;
   }
-
 </style>
