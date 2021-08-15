@@ -20,15 +20,42 @@
 </svelte:head>
 
 <section>
-  <h1>This is the home page</h1>
+  <div class="relays">
+    {#each relays as relay}
+      <div class="relay">
+        <h4>{`${relay.id} ${relay.name}`}</h4>
+        {#if relay.timer}
+	        <div>HR: {relay.timer.hr}</div>
+          <div>MIN: {relay.timer.min}</div>
+        {/if}
+      </div>
+    {:else}
+      <!-- this block renders when photos.length === 0 -->
+      <p>loading...</p>
+    {/each}
+  </div>
 </section>
 
 <style>
   section {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex: 1; */
+  }
+  .relays {
+    width: 100%;
+		display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .relay {
+    flex: 1 1;
+    min-width: 280px;
+    min-height: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--color-white);
   }
 </style>
