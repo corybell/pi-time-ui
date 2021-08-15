@@ -5,6 +5,7 @@
 <script>
   import { onMount } from "svelte"
   import RelayList from "$lib/relay-list/RelayList.svelte"
+  import RelayDetail from "$lib/relay-detail/RelayDetail.svelte"
   
   const url = "http://localhost:5000/relay"
   let relays = []
@@ -23,6 +24,7 @@
 <section>
   <RelayList relays={relays} />
 </section>
+<RelayDetail />
 
 <style>
   section {

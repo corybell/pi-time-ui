@@ -1,12 +1,12 @@
 <script>
-  import Relay from "$lib/relay/Relay.svelte"
+  import RelayCard from "$lib/relay-card/RelayCard.svelte"
   import Spinner from "$lib/spinner/Spinner.svelte"
 
   export let relays = []
 </script>
 
 <style>
-  .relays {
+  .relay-list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -14,9 +14,9 @@
   }
 </style>
 
-<div class="relays">
+<div class="relay-list">
   {#each relays as relay}
-    <Relay relay={relay} />
+    <RelayCard relay={relay} />
   {:else}
     <!-- this block renders when photos.length === 0 -->
     <Spinner />
