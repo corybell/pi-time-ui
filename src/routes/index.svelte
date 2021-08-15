@@ -26,10 +26,10 @@
 
 <style>
   section {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    flex: 1; */
+    flex: 1;
   }
 </style>
