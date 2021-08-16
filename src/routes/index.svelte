@@ -1,19 +1,19 @@
 <script context="module">
-  export const prerender = false
+  export const prerender = true
 </script>
 
 <script>
   import { onMount } from "svelte"
-  import RelayList from "$lib/relay-list/RelayList.svelte"
-  import RelayDetail from "$lib/relay-detail/RelayDetail.svelte"
-  
+  import RelayList from "$lib/components/relay-list/RelayList.svelte"
+  import RelayDetail from "$lib/components/relay-detail/RelayDetail.svelte"
+  import { relays } from "$lib/store/store.js"
+
   const url = "http://localhost:5000/relay"
-  let relays = []
 
   onMount(async () => {
     const res = await fetch(url)
-    relays = await res.json()
-    console.log(relays)
+    const r = await res.json()
+    relays.set(r)
   })
 </script>
 
@@ -22,7 +22,7 @@
 </svelte:head>
 
 <section>
-  <RelayList relays={relays} />
+  <RelayList />
 </section>
 <RelayDetail />
 
