@@ -1,9 +1,15 @@
 <script>
+  import { relayDetailId } from "$lib/store/store.js"
   export let relay
+
+  const onClick = (id) => (e) => {
+    relayDetailId.set(id)
+  }
 </script>
 
 <style>
   .relay {
+    display: block;
     flex: 1 1;
     min-width: 280px;
     min-height: 200px;
@@ -11,9 +17,12 @@
     margin: 1rem;
     background-color: var(--color-white);
   }
+  .relay:hover {
+    cursor: pointer;
+  }
 </style>
 
-<div class="relay">
+<div class="relay" on:click={onClick(relay.id)}>
   <h4>{`${relay.id} ${relay.name}`}</h4>
   {#if relay.timer}
     <div>HR: {relay.timer.hr}</div>
