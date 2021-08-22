@@ -54,6 +54,7 @@
     }
     .spacer {
       flex: 1;
+      max-width: 1rem;
     }
     @media (min-width: 480px) {
       .drawer {
