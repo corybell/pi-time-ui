@@ -27,12 +27,13 @@
     z-index: 1010;
     background-color: var(--color-white);
     position: fixed;
-    left: 0;
     top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     width: 100%;
     max-width: 500px;
-    padding: 2rem;
   }
   .relay-detail-content {
     padding: 1rem;
@@ -42,7 +43,9 @@
     background-color: rgba(0,0,0,0.5);
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
   }
@@ -64,12 +67,14 @@
   }
   @media (min-width: 480px) {
     .relay-detail {
-      width: 60%;
+      width: 70%;
+      padding: 1rem;
     }
   }
   @media (min-width: 767px) {
     .relay-detail {
-      width: 50%;
+      width: 60%;
+      padding: 2rem;
     }
   }
 </style>
@@ -81,7 +86,7 @@
     class="relay-detail"
   >
     <div class="relay-detail-content">
-      <div>{_relay.id}</div>
+      <h2>{_relay.id}</h2>
       <div>{_relay.name}</div>
       <div>{_relay.timer?.hr}</div>
       <div>{_relay.timer?.min}</div>
