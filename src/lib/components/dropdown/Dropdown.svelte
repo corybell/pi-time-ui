@@ -1,3 +1,5 @@
+<!-- https://moderncss.dev/custom-select-styles-with-pure-css/ -->
+
 <script>
   export let value
   export let options
