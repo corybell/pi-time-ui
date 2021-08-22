@@ -4,6 +4,8 @@
   export let label
   export let gutterBottom = false
 
+  const id = `select-${label}`
+
   const _options = [
     { value: undefined, label: '' },
     ...options
@@ -40,9 +42,9 @@
   }
 </style>
 
-<label for="standard-select">{label}</label>
+<label for={id}>{label}</label>
 <div class={`select ${gutterBottom ? 'marginBottom__2': ''}`}>
-  <select id="standard-select" bind:value={value}>
+  <select id={id} bind:value={value}>
     {#each _options as hour}
       <option value={hour.value}>
         {hour.label}
