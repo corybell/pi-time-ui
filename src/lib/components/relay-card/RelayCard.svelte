@@ -1,5 +1,5 @@
 <script>
-  import { relayDetailId } from "$lib/store/store.js"
+  import { hoursDict, minutesDict, relayDetailId } from "$lib/store/store.js"
   export let relay
 
   const onClick = (id) => (e) => {
@@ -25,7 +25,7 @@
 <div class="relay" on:click={onClick(relay.id)}>
   <h4>{`${relay.id} ${relay.name}`}</h4>
   {#if relay.timer}
-    <div>HR: {relay.timer.hr}</div>
-    <div>MIN: {relay.timer.min}</div>
+    <div>HR: {$hoursDict[relay.timer.hr]}</div>
+    <div>MIN: {$minutesDict[relay.timer.min]}</div>
   {/if}
 </div>

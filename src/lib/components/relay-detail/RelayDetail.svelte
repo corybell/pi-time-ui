@@ -83,6 +83,8 @@
     <div class="relay-detail-content">
       <div>{_relay.id}</div>
       <div>{_relay.name}</div>
+      <div>{_relay.timer?.hr}</div>
+      <div>{_relay.timer?.min}</div>
     </div>
     <div class="btn-container">
       <button class="btn-cancel" on:click={handleCancel}>Cancel</button>
