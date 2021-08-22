@@ -50,6 +50,10 @@
     .btn-container {
       display: flex;
       justify-content: space-between;
+      margin: 0 1rem;
+    }
+    .spacer {
+      flex: 1;
     }
     @media (min-width: 480px) {
       .drawer {
@@ -76,6 +80,7 @@
       </div>
       <div class="btn-container">
         <button class="btn-cancel" on:click={handleCancel}>Cancel</button>
+        <div class="spacer" />
         <button class="btn-save" on:click={handleSave}>Save</button>
       </div>
     </div>

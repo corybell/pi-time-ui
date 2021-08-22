@@ -1,0 +1,41 @@
+
+:root {
+  font-family: "Montserrat", Arial, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+
+  --color-primary: #9578d3;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-background-primary: #b9c6d2;
+  --color-background-secondary: #d0dde9;
+  --color-background-tertiary: #edf0f8;
+  --color-heading: #1a202c;
+  /* --color-form-control: #f5f2f0; */
+  --color-form-control: #edf0f8;
+
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 767px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1200px;
+
+  --line-height-none: 1;
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --font-size-h1: 2.488rem;
+  --font-size-h2: 2.074rem;
+  --font-size-h3: 1.728rem;
+  --font-size-h4: 1.44rem;
+  --font-size-h5: 1.2rem;
+  --font-size-h6: 1rem;
+  --font-size-form-control: 1.25rem;
+}

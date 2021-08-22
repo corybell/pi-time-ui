@@ -1,0 +1,16 @@
+
+button {
+  display: block;
+  flex: 1 1 auto;
+  padding: 1rem;
+  margin: 0;
+  border: none;
+  text-align: center;
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+}

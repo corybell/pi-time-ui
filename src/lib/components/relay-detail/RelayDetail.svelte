@@ -1,6 +1,8 @@
 <script>
   import Drawer from "$lib/components/drawer/Drawer.svelte"
-  import { relayDetailId, relays } from "$lib/store/store"
+  import Textbox from "$lib/components/textbox/Textbox.svelte"
+  import Dropdown from "$lib/components/dropdown/Dropdown.svelte"
+  import { relayDetailId, relays, hoursList, minutesList } from "$lib/store/store"
 
   let _relay
   let isOpen = false
@@ -24,12 +26,14 @@
 </script>
 
 <style>
-  
+  h2 {
+    margin-bottom: 2rem;
+  }
 </style>
 
 <Drawer bind:isOpen={isOpen} handleCancel={handleCancel} handleSave={handleSave}>
   <h2>{_relay.id}</h2>
-  <div>{_relay.name}</div>
-  <div>{_relay.timer?.hr}</div>
-  <div>{_relay.timer?.min}</div>
+  <Textbox value={_relay.name} label="Name" gutterBottom />
+  <Dropdown value={_relay.timer?.hr} options={$hoursList} label="Timer Hour Schedule" gutterBottom />
+  <Dropdown value={_relay.timer?.min} options={$minutesList} label="Timer Minute Schedule" gutterBottom />
 </Drawer>
