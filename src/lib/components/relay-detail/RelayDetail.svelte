@@ -25,14 +25,8 @@
   }
 </script>
 
-<style>
-  h2 {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <Drawer bind:isOpen={isOpen} handleCancel={handleCancel} handleSave={handleSave}>
-  <h2>{_relay.id}</h2>
+  <h2 class="marginBottom__2">{_relay.id}</h2>
   <Textbox value={_relay.name} label="Name" gutterBottom />
   <Dropdown value={_relay.timer?.hr} options={$hoursList} label="Timer Hour Schedule" gutterBottom />
   <Dropdown value={_relay.timer?.min} options={$minutesList} label="Timer Minute Schedule" gutterBottom />
