@@ -6,7 +6,13 @@
   import { onMount } from "svelte"
   import RelayList from "$lib/components/relay-list/RelayList.svelte"
   import RelayDetail from "$lib/components/relay-detail/RelayDetail.svelte"
-  import { relays, hoursList, minutesList, hoursDict, minutesDict } from "$lib/store/store.js"
+  import {
+    relays,
+    hoursList,
+    minutesList,
+    hoursDict,
+    minutesDict,
+  } from "$lib/store/store.js"
 
   const url = "http://localhost:5000/hydrate"
 

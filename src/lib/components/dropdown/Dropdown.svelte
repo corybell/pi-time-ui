@@ -1,5 +1,4 @@
 <!-- https://moderncss.dev/custom-select-styles-with-pure-css/ -->
-
 <script>
   export let value
   export let options
@@ -8,12 +7,19 @@
 
   const id = `select-${label}`
 
-  const _options = [
-    { value: undefined, label: '' },
-    ...options
-  ]
+  const _options = [{ value: undefined, label: "" }, ...options]
 </script>
 
+<label for={id}>{label}</label>
+<div class={`select ${gutterBottom ? "marginBottom__2" : ""}`}>
+  <select {id} bind:value>
+    {#each _options as hour}
+      <option value={hour.value}>
+        {hour.label}
+      </option>
+    {/each}
+  </select>
+</div>
 
 <style>
   .select {
@@ -43,14 +49,3 @@
     grid-area: select;
   }
 </style>
-
-<label for={id}>{label}</label>
-<div class={`select ${gutterBottom ? 'marginBottom__2': ''}`}>
-  <select id={id} bind:value={value}>
-    {#each _options as hour}
-      <option value={hour.value}>
-        {hour.label}
-      </option>
-    {/each}
-  </select>  
-</div>
