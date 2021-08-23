@@ -8,39 +8,65 @@
     hoursList,
     minutesList,
   } from "$lib/store/store"
+  import { putRelay } from "$lib/services/api"
 
-  let _relay
   let isOpen = false
+  let idValue, nameValue, hourValue, minuteValue
 
   relayDetailId.subscribe((id) => {
-    if (id) {
-      _relay = $relays.find((r) => r.id === id)
-    } else {
-      _relay = undefined
+    if (!id) {
+      isOpen = false
+      return
     }
-    isOpen = Boolean(_relay)
+
+    isOpen = true
+    const relay = $relays.find((r) => r.id === id)
+    idValue = relay?.id
+    nameValue = relay?.name
+    hourValue = relay?.timer?.hr
+    minuteValue = relay?.timer?.min
   })
 
-  function handleCancel() {
+  function closeDrawer() {
     relayDetailId.set(undefined)
   }
 
-  function handleSave() {
-    relayDetailId.set(undefined)
+  async function handleSave() {
+    // call api
+    const data = {
+      name: nameValue,
+      timer: {
+        hr: hourValue,
+        min: minuteValue
+      }
+    }
+    const response = await putRelay(idValue, data)
+    // handle response errors
+    if (response.status !== 200) {
+      console.log('putRelay failed')
+      return
+    }
+    // update store with new relay data
+    const newRelays = $relays.map((r) => {
+      return r.id === idValue ? { id: idValue, ...data } : r
+    })
+    relays.set(newRelays)
+    
+    closeDrawer()
   }
 </script>
 
-<Drawer bind:isOpen {handleCancel} {handleSave}>
-  <h2 class="marginBottom__2">{_relay.id}</h2>
-  <Textbox value={_relay.name} label="Name" gutterBottom />
+<Drawer bind:isOpen handleCancel={closeDrawer} {handleSave}>
+  <h2 class="marginBottom__2">{idValue}</h2>
+  <Textbox bind:value={nameValue} label="Name" gutterBottom />
   <Dropdown
-    value={_relay.timer?.hr}
+    bind:value={hourValue}
     options={$hoursList}
     label="Timer Hour Schedule"
     gutterBottom
   />
   <Dropdown
-    value={_relay.timer?.min}
+    bind:value={minuteValue}
     options={$minutesList}
     label="Timer Minute Schedule"
     gutterBottom

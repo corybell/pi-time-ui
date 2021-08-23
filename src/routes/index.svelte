@@ -13,12 +13,10 @@
     hoursDict,
     minutesDict,
   } from "$lib/store/store.js"
-
-  const url = "http://localhost:5000/hydrate"
+  import { hydrate } from "$lib/services/api"
 
   onMount(async () => {
-    const response = await fetch(url)
-    const { relays: relayData, hours, minutes } = await response.json()
+    const { relays: relayData, hours, minutes } = await hydrate()
     relays.set(relayData)
     hoursList.set(hours.list)
     minutesList.set(minutes.list)
