@@ -8,20 +8,6 @@
   const flyInOut = { x: -500, y: 0, duration: 500 }
 </script>
 
-{#if isOpen}
-  <div in:fly={flyInOut} out:fly={flyInOut} class="drawer">
-    <div class="drawer-content">
-      <slot />
-    </div>
-    <div class="btn-container">
-      <button class="btn-cancel" on:click={handleCancel}>Cancel</button>
-      <div class="spacer" />
-      <button class="btn-save" on:click={handleSave}>Save</button>
-    </div>
-  </div>
-  <div class="overlay" in:fade out:fade on:click={handleCancel} />
-{/if}
-
 <style>
   .drawer {
     z-index: 1010;
@@ -83,3 +69,17 @@
     }
   }
 </style>
+
+{#if isOpen}
+  <div in:fly={flyInOut} out:fly={flyInOut} class="drawer">
+    <div class="drawer-content">
+      <slot />
+    </div>
+    <div class="btn-container">
+      <button class="btn-cancel" on:click={handleCancel}>Cancel</button>
+      <div class="spacer" />
+      <button class="btn-save" on:click={handleSave}>Save</button>
+    </div>
+  </div>
+  <div class="overlay" in:fade out:fade on:click={handleCancel} />
+{/if}

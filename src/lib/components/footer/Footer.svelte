@@ -1,7 +1,3 @@
-<footer>
-  <!-- nothing here -->
-</footer>
-
 <style>
   footer {
     display: flex;
@@ -17,3 +13,7 @@
     }
   }
 </style>
+
+<footer>
+  <!-- nothing here -->
+</footer>

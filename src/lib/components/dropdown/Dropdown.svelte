@@ -10,17 +10,6 @@
   const _options = [{ value: undefined, label: "" }, ...options]
 </script>
 
-<label for={id}>{label}</label>
-<div class={`select ${gutterBottom ? "marginBottom__2" : ""}`}>
-  <select {id} bind:value>
-    {#each _options as hour}
-      <option value={hour.value}>
-        {hour.label}
-      </option>
-    {/each}
-  </select>
-</div>
-
 <style>
   .select {
     display: grid;
@@ -49,3 +38,14 @@
     grid-area: select;
   }
 </style>
+
+<label for={id}>{label}</label>
+<div class={`select ${gutterBottom ? "marginBottom__2" : ""}`}>
+  <select {id} bind:value>
+    {#each _options as hour}
+      <option value={hour.value}>
+        {hour.label}
+      </option>
+    {/each}
+  </select>
+</div>

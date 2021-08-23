@@ -27,15 +27,6 @@
   })
 </script>
 
-<svelte:head>
-  <title>Pi Time</title>
-</svelte:head>
-
-<section>
-  <RelayList />
-</section>
-<RelayDetail />
-
 <style>
   section {
     display: flex;
@@ -45,3 +36,12 @@
     flex: 1;
   }
 </style>
+
+<svelte:head>
+  <title>Pi Time</title>
+</svelte:head>
+
+<section>
+  <RelayList />
+</section>
+<RelayDetail />

@@ -7,14 +7,6 @@
   }
 </script>
 
-<div class="relay" on:click={onClick(relay.id)}>
-  <h4>{`${relay.id} ${relay.name}`}</h4>
-  {#if relay.timer}
-    <div>HR: {$hoursDict[relay.timer.hr]}</div>
-    <div>MIN: {$minutesDict[relay.timer.min]}</div>
-  {/if}
-</div>
-
 <style>
   .relay {
     display: block;
@@ -29,3 +21,11 @@
     cursor: pointer;
   }
 </style>
+
+<div class="relay" on:click={onClick(relay.id)}>
+  <h4>{`${relay.id} ${relay.name}`}</h4>
+  {#if relay.timer}
+    <div>HR: {$hoursDict[relay.timer.hr]}</div>
+    <div>MIN: {$minutesDict[relay.timer.min]}</div>
+  {/if}
+</div>

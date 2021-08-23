@@ -10,15 +10,6 @@
   })
 </script>
 
-<div class="relay-list">
-  {#each _relays as relay}
-    <RelayCard {relay} />
-  {:else}
-    <!-- this block renders when photos.length === 0 -->
-    <Spinner />
-  {/each}
-</div>
-
 <style>
   .relay-list {
     max-width: 800px;
@@ -28,3 +19,12 @@
     justify-content: center;
   }
 </style>
+
+<div class="relay-list">
+  {#each _relays as relay}
+    <RelayCard {relay} />
+  {:else}
+    <!-- this block renders when photos.length === 0 -->
+    <Spinner />
+  {/each}
+</div>

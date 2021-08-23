@@ -1,7 +1,3 @@
-<header>
-  <h1>PI TIME</h1>
-</header>
-
 <style>
   header {
     display: flex;
@@ -14,3 +10,7 @@
     text-align: center;
   }
 </style>
+
+<header>
+  <h1>PI TIME</h1>
+</header>

@@ -4,14 +4,6 @@
   import "../app.css"
 </script>
 
-<Header />
-
-<main>
-  <slot />
-</main>
-
-<Footer />
-
 <style>
   main {
     flex: 1;
@@ -24,3 +16,11 @@
     box-sizing: border-box;
   }
 </style>
+
+<Header />
+
+<main>
+  <slot />
+</main>
+
+<Footer />
