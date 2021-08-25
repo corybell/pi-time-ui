@@ -13,6 +13,7 @@
     function handleSave() {
       hostStore.set(host) 
       closeDrawer()
+      location.reload()
     }
   </script>
   

@@ -12,11 +12,17 @@
     minutesList,
     hoursDict,
     minutesDict,
+    hostStore,
   } from "$lib/store/store.js"
   import { hydrate } from "$lib/services/api"
 
   onMount(async () => {
-    const { relays: relayData, hours, minutes } = await hydrate()
+    const response = await hydrate($hostStore)
+    if (response?.status !== 200) {
+      console.log('hydrate failed')
+      return
+    }
+    const { relays: relayData, hours, minutes } = await response.json()
     relays.set(relayData)
     hoursList.set(hours.list)
     minutesList.set(minutes.list)

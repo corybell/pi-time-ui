@@ -7,6 +7,7 @@
     relays,
     hoursList,
     minutesList,
+    hostStore,
   } from "$lib/store/store"
   import { putRelay } from "$lib/services/api"
 
@@ -40,7 +41,7 @@
         min: minuteValue
       }
     }
-    const response = await putRelay(idValue, data)
+    const response = await putRelay($hostStore, idValue, data)
     // handle response errors
     if (response.status !== 200) {
       console.log('putRelay failed')
