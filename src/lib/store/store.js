@@ -1,4 +1,6 @@
 import { writable } from "svelte/store"
+import { writable as lsWritable } from 'svelte-local-storage-store'
+const key = 'PI_TIME_HOST'
 
 export const relays = writable([])
 
@@ -11,3 +13,5 @@ export const minutesDict = writable({})
 export const relayDetailId = writable(undefined)
 
 export const isSettingsDrawerOpen = writable(false)
+
+export const hostStore = lsWritable(key, '')

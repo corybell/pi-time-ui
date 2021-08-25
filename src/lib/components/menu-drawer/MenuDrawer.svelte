@@ -1,18 +1,17 @@
 <script>
     import Drawer from "$lib/components/drawer/Drawer.svelte"
     import Textbox from "$lib/components/textbox/Textbox.svelte"
-    import { isSettingsDrawerOpen } from "$lib/store/store"
-    
-    let host = ''
-  
+    import { isSettingsDrawerOpen, hostStore } from "$lib/store/store"
+
+    let host = $hostStore
+
     function closeDrawer() {
       isSettingsDrawerOpen.set(false)
-      host = ''
+      host = $hostStore
     }
   
     function handleSave() {
-      console.log(host)
-
+      hostStore.set(host) 
       closeDrawer()
     }
   </script>
