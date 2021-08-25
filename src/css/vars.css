@@ -37,4 +37,6 @@
   --font-size-h5: 1.2rem;
   --font-size-h6: 1rem;
   --font-size-form-control: 1.25rem;
+
+  --container-width: 1024px;
 }

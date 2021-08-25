@@ -9,3 +9,5 @@ export const minutesList = writable([])
 export const minutesDict = writable({})
 
 export const relayDetailId = writable(undefined)
+
+export const isSettingsDrawerOpen = writable(false)

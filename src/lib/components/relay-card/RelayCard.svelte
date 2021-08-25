@@ -11,7 +11,7 @@
   .relay {
     display: block;
     flex: 1 1;
-    min-width: 280px;
+    min-width: 320px;
     min-height: 200px;
     padding: 1rem;
     margin: 1rem;

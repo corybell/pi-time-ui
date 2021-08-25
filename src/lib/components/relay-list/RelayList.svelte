@@ -12,8 +12,9 @@
 
 <style>
   .relay-list {
-    max-width: 800px;
     width: 100%;
+    margin-top: 1rem;
+    padding: 0 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -9,9 +9,8 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 2rem;
     width: 100%;
-    max-width: 1024px;
+    max-width: var(--container-width);
     margin: 0 auto;
   }
 </style>
