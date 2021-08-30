@@ -1,6 +1,6 @@
 <script>
-  import MenuButton from "$lib/components/menu-button/MenuButton.svelte"
-  import MenuDrawer from "$lib/components/menu-drawer/MenuDrawer.svelte"
+  import SettingsButton from "$lib/components/settings-button/SettingsButton.svelte"
+  import SettingsDrawer from "$lib/components/settings-drawer/SettingsDrawer.svelte"
 </script>
 
 <style>
@@ -25,8 +25,8 @@
 
 <header>
   <div class="header-container">
-    <MenuButton />
+    <SettingsButton />
     <h3>PI TIME</h3>
   </div>
 </header>
-<MenuDrawer />
+<SettingsDrawer />
