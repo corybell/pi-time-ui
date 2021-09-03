@@ -38,24 +38,6 @@
   .overlay:hover {
     cursor: pointer;
   }
-  .btn-save {
-    color: #fff;
-    background-color: var(--color-primary);
-  }
-  .btn-cancel {
-    color: var(--color-primary);
-    background-color: var(--color-white);
-    border: 2px solid var(--color-primary);
-  }
-  .btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 1rem;
-  }
-  .spacer {
-    flex: 1;
-    max-width: 1rem;
-  }
   @media (min-width: 480px) {
     .drawer {
       width: 70%;
@@ -75,11 +57,7 @@
     <div class="drawer-content">
       <slot />
     </div>
-    <div class="btn-container">
-      <button class="btn-cancel" on:click={handleCancel}>Cancel</button>
-      <div class="spacer" />
-      <button class="btn-save" on:click={handleSave}>Save</button>
-    </div>
+    
   </div>
   <div class="overlay" in:fade out:fade on:click={handleCancel} />
 {/if}

@@ -2,6 +2,8 @@
   import Drawer from "$lib/components/drawer/Drawer.svelte"
   import Textbox from "$lib/components/textbox/Textbox.svelte"
   import Dropdown from "$lib/components/dropdown/Dropdown.svelte"
+  import Button from '$lib/components/button/Button.svelte'
+  import ButtonGroup from "$lib/components/button/ButtonGroup.svelte";
   import {
     relayDetailId,
     relays,
@@ -72,4 +74,8 @@
     label="Timer Minute Schedule"
     gutterBottom
   />
+  <ButtonGroup>
+    <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
+    <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />
+  </ButtonGroup>
 </Drawer>
