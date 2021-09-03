@@ -3,7 +3,6 @@
 
   export let isOpen = false
   export let handleCancel
-  export let handleSave
 
   const flyInOut = { x: -500, y: 0, duration: 500 }
 </script>
