@@ -1,12 +1,15 @@
 @import "@fontsource/montserrat";
 @import "./css/vars.css";
-@import "./css//body.css";
+@import "./css/body.css";
 @import "./css/typography.css";
 @import "./css/button.css";
 @import "./css/input.css";
 @import "./css/select.css";
 @import "./css/spacers.css";
-@import "./css//label.css";
+@import "./css/label.css";
+@import "./css//a.css";
+@import "./css/ul.css";
+@import "./css/li.css";
 
 *,
 *::before,

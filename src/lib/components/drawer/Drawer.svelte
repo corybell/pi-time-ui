@@ -17,11 +17,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    width: 100%;
-    max-width: 500px;
-  }
-  .drawer-content {
-    padding: 1rem;
+    width: fit-content;
   }
   .overlay {
     z-index: 1000;
@@ -37,26 +33,11 @@
   .overlay:hover {
     cursor: pointer;
   }
-  @media (min-width: 480px) {
-    .drawer {
-      width: 70%;
-      padding: 1rem;
-    }
-  }
-  @media (min-width: 767px) {
-    .drawer {
-      width: 60%;
-      padding: 2rem;
-    }
-  }
 </style>
 
 {#if isOpen}
   <div in:fly={flyInOut} out:fly={flyInOut} class="drawer">
-    <div class="drawer-content">
-      <slot />
-    </div>
-    
+    <slot />
   </div>
   <div class="overlay" in:fade out:fade on:click={handleCancel} />
 {/if}

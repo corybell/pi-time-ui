@@ -1,6 +1,5 @@
 <script>
   import SettingsButton from "$lib/components/settings-button/SettingsButton.svelte"
-  import SettingsDrawer from "$lib/components/settings-drawer/SettingsDrawer.svelte"
 </script>
 
 <style>
@@ -29,4 +28,3 @@
     <h3>PI TIME</h3>
   </div>
 </header>
-<SettingsDrawer />
