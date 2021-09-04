@@ -70,28 +70,33 @@
   .headerContainer {
     display: flex;
   }
+  .content {
+    padding: 1rem;
+  }
 </style>
 
 <Drawer bind:isOpen handleCancel={closeDrawer} {handleSave}>
-  <div class="headerContainer marginBottom__2">
-    <h2 class="">{idValue}</h2>
-    <Button text="Clear data" variant="link" handleClick={handleClear} />
+  <div class="content">
+    <div class="headerContainer marginBottom__2">
+      <h2 class="">{idValue}</h2>
+      <Button text="Clear data" variant="link" handleClick={handleClear} />
+    </div>
+    <Textbox bind:value={nameValue} bind:el={nameEl} label="Name" gutterBottom />
+    <Dropdown
+      bind:value={hourValue}
+      options={$hoursList}
+      label="Timer Hour Schedule"
+      gutterBottom
+    />
+    <Dropdown
+      bind:value={minuteValue}
+      options={$minutesList}
+      label="Timer Minute Schedule"
+      gutterBottom
+    />
+    <ButtonGroup>
+      <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
+      <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />
+    </ButtonGroup>
   </div>
-  <Textbox bind:value={nameValue} bind:el={nameEl} label="Name" gutterBottom />
-  <Dropdown
-    bind:value={hourValue}
-    options={$hoursList}
-    label="Timer Hour Schedule"
-    gutterBottom
-  />
-  <Dropdown
-    bind:value={minuteValue}
-    options={$minutesList}
-    label="Timer Minute Schedule"
-    gutterBottom
-  />
-  <ButtonGroup>
-    <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
-    <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />
-  </ButtonGroup>
 </Drawer>
