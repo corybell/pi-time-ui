@@ -1,6 +1,5 @@
 <script>
   import Header from "$lib/components/header/Header.svelte"
-  import Footer from "$lib/components/footer/Footer.svelte"
   import Nav from "$lib/components/nav/Nav.svelte"
 
   import "../app.css"
@@ -23,5 +22,3 @@
 <main>
   <slot />
 </main>
-
-<Footer />
