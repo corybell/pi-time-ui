@@ -1,6 +1,7 @@
 <script>
   export let value
   export let label
+  export let el
   export let gutterBottom = false
 
   const id = `text-input-${label}`
@@ -11,5 +12,6 @@
   type="text"
   {id}
   bind:value
+  bind:this={el}
   class={gutterBottom ? "marginBottom__2" : ""}
 />

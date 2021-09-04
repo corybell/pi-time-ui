@@ -15,6 +15,7 @@
 
   let isOpen = false
   let idValue, nameValue, hourValue, minuteValue
+  let nameEl
 
   relayDetailId.subscribe((id) => {
     if (!id) {
@@ -32,6 +33,12 @@
 
   function closeDrawer() {
     relayDetailId.set(undefined)
+  }
+
+  function handleClear() {
+    nameValue = ''
+    hourValue = minuteValue = undefined
+    nameEl.focus()
   }
 
   async function handleSave() {
@@ -59,9 +66,18 @@
   }
 </script>
 
+<style>
+  .headerContainer {
+    display: flex;
+  }
+</style>
+
 <Drawer bind:isOpen handleCancel={closeDrawer} {handleSave}>
-  <h2 class="marginBottom__2">{idValue}</h2>
-  <Textbox bind:value={nameValue} label="Name" gutterBottom />
+  <div class="headerContainer marginBottom__2">
+    <h2 class="">{idValue}</h2>
+    <Button text="Clear data" variant="link" handleClick={handleClear} />
+  </div>
+  <Textbox bind:value={nameValue} bind:el={nameEl} label="Name" gutterBottom />
   <Dropdown
     bind:value={hourValue}
     options={$hoursList}

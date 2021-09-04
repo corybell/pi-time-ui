@@ -2,7 +2,19 @@
   export let handleClick
   export let text
   export let variant
-  const className = variant === 'primary' ? 'btn-primary' : 'btn-secondary'
+
+  const variants = [
+    'primary',
+    'secondary',
+    'link',
+  ]
+
+  function getClass() {
+    if (variant && variants.includes(variant)) {
+      return `btn-${variant}`;
+    }
+    return 'btn-primary'
+  }
 </script>
   
 <style>
@@ -15,6 +27,17 @@
     background-color: var(--color-white);
     border: 2px solid var(--color-primary);
   }
+  .btn-link {
+    color: var(--color-primary);
+    background-color: transparent;
+    padding: 0;
+    border-bottom: 2px solid transparent;
+    text-transform: none;
+  }
+  .btn-link:hover,
+  .btn-link:focus {
+    border-bottom: 2px solid var(--color-primary);
+  }
 </style>
 
-<button class={className} on:click={handleClick}>{text}</button>
+<button class={getClass()} on:click={handleClick}>{text}</button>

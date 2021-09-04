@@ -8,6 +8,7 @@ button {
   font-size: var(--font-size-h6);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 button:hover {
