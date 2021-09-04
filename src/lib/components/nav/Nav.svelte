@@ -4,7 +4,7 @@
   import HomeIcon from "$lib/icons/HomeIcon.svelte"
   import PiIcon from "$lib/icons/PiIcon.svelte"
   import RelayIcon from "$lib/icons/RelayIcon.svelte"
-  import { isSettingsDrawerOpen } from "$lib/store/store"
+  import { isNavOpen } from "$lib/store/store"
 
   const homeRoute = {
     href: '/',
@@ -26,7 +26,7 @@
   ]
 
   function closeDrawer() {
-    isSettingsDrawerOpen.set(false)
+    isNavOpen.set(false)
   }
 </script>
 
@@ -68,7 +68,7 @@
   }
 </style>
 
-<Drawer bind:isOpen={$isSettingsDrawerOpen} handleCancel={closeDrawer} >
+<Drawer bind:isOpen={$isNavOpen} handleCancel={closeDrawer} >
   <nav>
     <ul>
       <li>

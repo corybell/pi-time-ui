@@ -1,5 +1,5 @@
 <script>
-  import SettingsButton from "$lib/components/settings-button/SettingsButton.svelte"
+  import MenuButton from "$lib/components/header/MenuButton.svelte"
 </script>
 
 <style>
@@ -24,7 +24,7 @@
 
 <header>
   <div class="header-container">
-    <SettingsButton />
+    <MenuButton />
     <h3>PI TIME</h3>
   </div>
 </header>

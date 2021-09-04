@@ -1,8 +1,8 @@
 <script>
-  import { isSettingsDrawerOpen } from "$lib/store/store"
+  import { isNavOpen } from "$lib/store/store"
 
   function handleClick() {
-    isSettingsDrawerOpen.set(true)
+    isNavOpen.set(true)
   }
 </script>
 

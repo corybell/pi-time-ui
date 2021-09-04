@@ -12,6 +12,6 @@ export const minutesDict = writable({})
 
 export const relayDetailId = writable(undefined)
 
-export const isSettingsDrawerOpen = writable(false)
+export const isNavOpen = writable(false)
 
 export const hostStore = lsWritable(key, '')
