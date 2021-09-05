@@ -9,8 +9,8 @@
     relays,
     hoursList,
     minutesList,
-    hostStore,
   } from "$lib/store/store"
+  import { hostStore } from "$lib/store/hostStore"
   import { putRelay } from "$lib/services/api"
 
   let isOpen = false

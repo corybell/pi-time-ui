@@ -13,8 +13,8 @@
     minutesList,
     hoursDict,
     minutesDict,
-    hostStore,
   } from "$lib/store/store.js"
+  import { hostStore } from "$lib/store/hostStore"
   import { hydrate } from "$lib/services/api"
 
   onMount(async () => {

@@ -26,7 +26,7 @@
 
 <Drawer bind:isOpen={$isHostDrawerOpen} handleCancel={closeDrawer}>
   <div class="content">
-    <h2 class="marginBottom__2">Edit Host</h2>
+    <h2 class="marginBottom__2">Add Host</h2>
     <Textbox bind:value={host} label="Host" gutterBottom />
     <ButtonGroup>
       <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />

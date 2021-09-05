@@ -6,9 +6,14 @@
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import Button from "$lib/components/button/Button.svelte"
   import EditHostDrawer from "$lib/modules/host/EditHostDrawer.svelte"
-  import { hostStore, isHostDrawerOpen } from "$lib/store/store"
+  import AddHostDrawer from "$lib/modules/host/AddHostDrawer.svelte"
+  import { isHostDrawerOpen, hostStore } from "$lib/store/hostStore"
 
   function handleEditClick() {
+    
+  }
+
+  function handleAddClick() {
     isHostDrawerOpen.set(true)
   }
 </script>
@@ -18,7 +23,7 @@
     display: flex;
     align-items: center;
     padding: 1rem;
-    margin: 2rem;
+    margin: 1rem 2rem;
     background-color: var(--color-white);
   }
 
@@ -38,5 +43,11 @@
     <div class="spacer" />
     <Button variant="secondary" text="Edit" handleClick={handleEditClick} />
   </div>
+  <div class="host">
+    <h4>New host...</h4>
+    <div class="spacer" />
+    <Button variant="secondary" text="Add" handleClick={handleAddClick} />
+  </div>
 </section>
 <EditHostDrawer />
+<AddHostDrawer />
