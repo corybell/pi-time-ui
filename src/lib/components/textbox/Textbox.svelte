@@ -1,7 +1,7 @@
 <script>
   export let value
   export let label
-  export let el
+  export let el = undefined
   export let gutterBottom = false
 
   const id = `text-input-${label}`

@@ -75,7 +75,7 @@
   }
 </style>
 
-<Drawer bind:isOpen handleCancel={closeDrawer} {handleSave}>
+<Drawer bind:isOpen handleCancel={closeDrawer}>
   <div class="content">
     <h1 class="marginBottom__2">Relay Settings</h1>
     <div class="headerContainer marginBottom__2">

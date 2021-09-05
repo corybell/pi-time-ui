@@ -24,7 +24,7 @@
   }
 </style>
 
-<Drawer bind:isOpen={$isHostDrawerOpen} handleCancel={closeDrawer} {handleSave}>
+<Drawer bind:isOpen={$isHostDrawerOpen} handleCancel={closeDrawer}>
   <div class="content">
     <h2 class="marginBottom__2">Edit Host</h2>
     <Textbox bind:value={host} label="Host" gutterBottom />
