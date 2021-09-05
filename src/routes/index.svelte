@@ -4,8 +4,8 @@
 
 <script>
   import { onMount } from "svelte"
-  import RelayList from "$lib/components/relay-list/RelayList.svelte"
-  import RelayDetail from "$lib/components/relay-detail/RelayDetail.svelte"
+  import RelayCardList from "$lib/modules/relay/RelayCardList.svelte"
+  import RelaySettingsDrawer from "$lib/modules/relay/RelaySettingsDrawer.svelte"
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import {
     relays,
@@ -47,6 +47,6 @@
 
 <section>
   <PageTitle title="Active Relays" />
-  <RelayList />
+  <RelayCardList />
 </section>
-<RelayDetail />
+<RelaySettingsDrawer />

@@ -1,5 +1,5 @@
 <script>
-  import RelayCard from "$lib/components/relay-card/RelayCard.svelte"
+  import RelayCard from "$lib/modules/relay/RelayCard.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
   import { relays } from "$lib/store/store"
 
