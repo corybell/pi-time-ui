@@ -14,12 +14,12 @@
 
   const links = [
     {
-      href: '/hosts',
-      text: 'Hosts',
+      href: '/host',
+      text: 'Host',
       icon: PiIcon,
     },
     {
-      href: '/relays',
+      href: '/relay',
       text: 'Relays',
       icon: RelayIcon,
     },

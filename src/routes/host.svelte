@@ -16,5 +16,5 @@
 </svelte:head>
 
 <section>
-  <PageTitle title="Hosts" />
+  <PageTitle title="Host" />
 </section>
