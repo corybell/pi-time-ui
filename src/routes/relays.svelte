@@ -2,6 +2,10 @@
   export const prerender = false
 </script>
 
+<script>
+  import PageTitle from "$lib/components/page-title/PageTitle.svelte"
+</script>
+
 <style>
   section {
     display: flex;
@@ -16,5 +20,5 @@
 </svelte:head>
 
 <section>
-  <h1>Relays</h1>
+  <PageTitle title="Relays" />
 </section>

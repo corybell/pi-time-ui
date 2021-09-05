@@ -6,6 +6,7 @@
   import { onMount } from "svelte"
   import RelayList from "$lib/components/relay-list/RelayList.svelte"
   import RelayDetail from "$lib/components/relay-detail/RelayDetail.svelte"
+  import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import {
     relays,
     hoursList,
@@ -45,6 +46,7 @@
 </svelte:head>
 
 <section>
+  <PageTitle title="Active Relays" />
   <RelayList />
 </section>
 <RelayDetail />

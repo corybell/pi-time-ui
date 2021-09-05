@@ -77,6 +77,7 @@
 
 <Drawer bind:isOpen handleCancel={closeDrawer} {handleSave}>
   <div class="content">
+    <h1 class="marginBottom__2">Relay Settings</h1>
     <div class="headerContainer marginBottom__2">
       <h2 class="">{idValue}</h2>
       <Button text="Clear data" variant="link" handleClick={handleClear} />

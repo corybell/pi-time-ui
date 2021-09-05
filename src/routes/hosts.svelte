@@ -2,13 +2,12 @@
   export const prerender = false
 </script>
 
+<script>
+  import PageTitle from "$lib/components/page-title/PageTitle.svelte"
+</script>
 
 <style>
   section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
   }
 </style>
 
@@ -17,6 +16,5 @@
 </svelte:head>
 
 <section>
-  <h1>Hosts</h1>
-  <i data-feather="circle"></i>
+  <PageTitle title="Hosts" />
 </section>
