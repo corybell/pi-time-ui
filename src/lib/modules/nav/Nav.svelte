@@ -1,9 +1,9 @@
 <script>
   import { page } from "$app/stores"
   import Drawer from "$lib/components/drawer/Drawer.svelte"
-  import HomeIcon from "$lib/icons/HomeIcon.svelte"
-  import PiIcon from "$lib/icons/PiIcon.svelte"
-  import RelayIcon from "$lib/icons/RelayIcon.svelte"
+  import HomeIcon from "$lib/components/icon/HomeIcon.svelte"
+  import PiIcon from "$lib/components/icon/PiIcon.svelte"
+  import RelayIcon from "$lib/components/icon/RelayIcon.svelte"
   import { isNavOpen } from "$lib/store/store"
 
   const homeRoute = {
