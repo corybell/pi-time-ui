@@ -14,11 +14,11 @@
     hoursDict,
     minutesDict,
   } from "$lib/store/store.js"
-  import { hostStore } from "$lib/store/hostStore"
+  import { activeHostName } from "$lib/store/hostStore"
   import { hydrate } from "$lib/services/api"
 
   onMount(async () => {
-    const response = await hydrate($hostStore)
+    const response = await hydrate($activeHostName)
     if (response?.status !== 200) {
       console.log('hydrate failed')
       return

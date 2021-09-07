@@ -10,7 +10,7 @@
     hoursList,
     minutesList,
   } from "$lib/store/store"
-  import { hostStore } from "$lib/store/hostStore"
+  import { activeHostName } from "$lib/store/hostStore"
   import { putRelay } from "$lib/services/api"
 
   let isOpen = false
@@ -50,7 +50,7 @@
         min: minuteValue
       }
     }
-    const response = await putRelay($hostStore, idValue, data)
+    const response = await putRelay($activeHostName, idValue, data)
     // handle response errors
     if (response.status !== 200) {
       console.log('putRelay failed')

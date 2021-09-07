@@ -3,17 +3,21 @@
   import Textbox from "$lib/components/textbox/Textbox.svelte"
   import Button from '$lib/components/button/Button.svelte'
   import ButtonGroup from "$lib/components/button/ButtonGroup.svelte";
-  import { isHostDrawerOpen, hostStore } from "$lib/store/hostStore"
+  import { 
+    editingHostIndex,
+    getHostStore,
+    setHostStore,
+  } from "$lib/store/hostStore"
 
-  let host = $hostStore
+  let hostValue
+  $: hostValue = getHostStore($editingHostIndex)
 
   function closeDrawer() {
-    isHostDrawerOpen.set(false)
-    host = $hostStore
+    editingHostIndex.set(undefined)
   }
 
   function handleSave() {
-    hostStore.set(host) 
+    setHostStore($editingHostIndex, hostValue)
     closeDrawer()
   }
 </script>
@@ -24,10 +28,10 @@
   }
 </style>
 
-<Drawer bind:isOpen={$isHostDrawerOpen} handleCancel={closeDrawer}>
+<Drawer bind:isOpen={$editingHostIndex} handleCancel={closeDrawer}>
   <div class="content">
     <h2 class="marginBottom__2">Edit Host</h2>
-    <Textbox bind:value={host} label="Host" gutterBottom />
+    <Textbox bind:value={hostValue} label="Host" gutterBottom />
     <ButtonGroup>
       <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
       <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />

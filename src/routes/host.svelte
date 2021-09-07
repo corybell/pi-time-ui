@@ -3,32 +3,33 @@
 </script>
 
 <script>
-  import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import Button from "$lib/components/button/Button.svelte"
   import EditHostDrawer from "$lib/modules/host/EditHostDrawer.svelte"
-  import AddHostDrawer from "$lib/modules/host/AddHostDrawer.svelte"
-  import { isHostDrawerOpen, hostStore } from "$lib/store/hostStore"
-
-  function handleEditClick() {
-    
+  import EditActiveHostDrawer from "$lib/modules/host/EditActiveHostDrawer.svelte"
+  import HostCard from "$lib/modules/host/HostCard.svelte"
+  import { 
+    editingHostIndex, 
+    activeHostIndex, 
+    isEditActiveDrawerOpen,
+    hostStore0,
+    hostStore1,
+    hostStore2,
+    hostStore3
+  } from "$lib/store/hostStore"
+  
+  const makeEditClickHandler = (i) => () => {
+    editingHostIndex.set(i)
   }
 
-  function handleAddClick() {
-    isHostDrawerOpen.set(true)
+  function handleEditActiveHostClick() {
+    isEditActiveDrawerOpen.set(true)
   }
 </script>
 
 <style>
-  .host {
+  .container {
     display: flex;
-    align-items: center;
-    padding: 1rem;
-    margin: 1rem 2rem;
-    background-color: var(--color-white);
-  }
-
-  .spacer {
-    flex-grow: 1;
+    padding: 2rem;
   }
 </style>
 
@@ -37,17 +38,36 @@
 </svelte:head>
 
 <section>
-  <PageTitle title="Host" />
-  <div class="host">
-    <h4>{$hostStore}</h4>
-    <div class="spacer" />
-    <Button variant="secondary" text="Edit" handleClick={handleEditClick} />
+  <div class="container">
+    <h1>Hosts</h1>
+    <Button 
+      variant="primary" 
+      text="Edit active host" 
+      handleClick={handleEditActiveHostClick} 
+    />
   </div>
-  <div class="host">
-    <h4>New host...</h4>
-    <div class="spacer" />
-    <Button variant="secondary" text="Add" handleClick={handleAddClick} />
+  <div class="host-list">
+    <HostCard 
+      hostName={$hostStore0} 
+      handleClick={makeEditClickHandler(0)}
+      isActive={$activeHostIndex === 0}
+    />
+    <HostCard 
+      hostName={$hostStore1} 
+      handleClick={makeEditClickHandler(1)}
+      isActive={$activeHostIndex === 1}
+    />
+    <HostCard 
+      hostName={$hostStore2} 
+      handleClick={makeEditClickHandler(2)}
+      isActive={$activeHostIndex === 2}
+    />
+    <HostCard 
+      hostName={$hostStore3} 
+      handleClick={makeEditClickHandler(3)}
+      isActive={$activeHostIndex === 3}
+    />
   </div>
 </section>
 <EditHostDrawer />
-<AddHostDrawer />
+<EditActiveHostDrawer />

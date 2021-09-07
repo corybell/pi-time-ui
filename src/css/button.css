@@ -9,6 +9,7 @@ button {
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   white-space: nowrap;
+  height: fit-content;
 }
 
 button:hover {
