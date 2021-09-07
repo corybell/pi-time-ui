@@ -4,10 +4,11 @@
   export let options
   export let label
   export let gutterBottom = false
+  export let blank = true
 
   const id = `select-${label}`
 
-  const _options = [{ value: undefined, label: "" }, ...options]
+  const _options = blank ? [{ value: undefined, label: "" }, ...options] : [...options]
 </script>
 
 <style>

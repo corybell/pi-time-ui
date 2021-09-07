@@ -47,6 +47,7 @@
       options={hostOptions}
       label="Active Host"
       gutterBottom
+      blank={false}
     />
     <ButtonGroup>
       <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
