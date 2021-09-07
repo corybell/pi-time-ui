@@ -1,20 +1,20 @@
 <script>
   import Drawer from "$lib/components/drawer/Drawer.svelte"
   import Dropdown from "$lib/components/dropdown/Dropdown.svelte"
-  import Button from '$lib/components/button/Button.svelte'
+  import Button from "$lib/components/button/Button.svelte"
   import ButtonGroup from "$lib/components/button/ButtonGroup.svelte"
-  import { 
+  import {
     hostStore0,
     hostStore1,
     hostStore2,
     hostStore3,
-    activeHostIndex, 
-    isEditActiveDrawerOpen 
+    activeHostIndex,
+    isEditActiveDrawerOpen,
   } from "$lib/store/hostStore"
 
   let hostValue = $activeHostIndex
   let hostOptions
-  
+
   $: hostOptions = [
     { value: 0, label: $hostStore0 },
     { value: 1, label: $hostStore1 },
@@ -50,8 +50,18 @@
       blank={false}
     />
     <ButtonGroup>
-      <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
-      <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />
+      <Button
+        slot="left"
+        text="Cancel"
+        variant="secondary"
+        handleClick={closeDrawer}
+      />
+      <Button
+        slot="right"
+        text="Save"
+        variant="primary"
+        handleClick={handleSave}
+      />
     </ButtonGroup>
   </div>
 </Drawer>

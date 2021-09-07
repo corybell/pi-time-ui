@@ -1,10 +1,9 @@
-
 export async function hydrate(host) {
   if (!host) {
     return undefined
   }
   try {
-    return await fetch(`${host}/hydrate`)    
+    return await fetch(`${host}/hydrate`)
   } catch (error) {
     return undefined
   }
@@ -16,12 +15,12 @@ export async function putRelay(host, id, data) {
   }
   try {
     return await fetch(`${host}/relay/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })  
+    })
   } catch (error) {
     return undefined
   }

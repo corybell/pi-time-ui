@@ -2,8 +2,8 @@
   import Drawer from "$lib/components/drawer/Drawer.svelte"
   import Textbox from "$lib/components/textbox/Textbox.svelte"
   import Dropdown from "$lib/components/dropdown/Dropdown.svelte"
-  import Button from '$lib/components/button/Button.svelte'
-  import ButtonGroup from "$lib/components/button/ButtonGroup.svelte";
+  import Button from "$lib/components/button/Button.svelte"
+  import ButtonGroup from "$lib/components/button/ButtonGroup.svelte"
   import {
     relayDetailId,
     relays,
@@ -36,7 +36,7 @@
   }
 
   function handleClear() {
-    nameValue = ''
+    nameValue = ""
     hourValue = minuteValue = undefined
     nameEl.focus()
   }
@@ -47,13 +47,13 @@
       name: nameValue,
       timer: {
         hr: hourValue,
-        min: minuteValue
-      }
+        min: minuteValue,
+      },
     }
     const response = await putRelay($activeHostName, idValue, data)
     // handle response errors
     if (response.status !== 200) {
-      console.log('putRelay failed')
+      console.log("putRelay failed")
       return
     }
     // update store with new relay data
@@ -61,7 +61,7 @@
       return r.id === idValue ? { id: idValue, ...data } : r
     })
     relays.set(newRelays)
-    
+
     closeDrawer()
   }
 </script>
@@ -82,7 +82,12 @@
       <h2 class="">{idValue}</h2>
       <Button text="Clear data" variant="link" handleClick={handleClear} />
     </div>
-    <Textbox bind:value={nameValue} bind:el={nameEl} label="Name" gutterBottom />
+    <Textbox
+      bind:value={nameValue}
+      bind:el={nameEl}
+      label="Name"
+      gutterBottom
+    />
     <Dropdown
       bind:value={hourValue}
       options={$hoursList}
@@ -96,8 +101,18 @@
       gutterBottom
     />
     <ButtonGroup>
-      <Button slot="left" text="Cancel" variant="secondary" handleClick={closeDrawer} />
-      <Button slot="right" text="Save" variant="primary" handleClick={handleSave} />
+      <Button
+        slot="left"
+        text="Cancel"
+        variant="secondary"
+        handleClick={closeDrawer}
+      />
+      <Button
+        slot="right"
+        text="Save"
+        variant="primary"
+        handleClick={handleSave}
+      />
     </ButtonGroup>
   </div>
 </Drawer>

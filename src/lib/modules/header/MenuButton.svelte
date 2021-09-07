@@ -18,8 +18,8 @@
 
 <button class="menu" on:click={handleClick}>
   <svg class="svg" viewBox="0 0 100 80" width="30" height="30">
-    <rect width="100" height="15" rx="8"></rect>
-    <rect y="33" width="100" height="15" rx="8"></rect>
-    <rect y="66" width="100" height="15" rx="8"></rect>
+    <rect width="100" height="15" rx="8" />
+    <rect y="33" width="100" height="15" rx="8" />
+    <rect y="66" width="100" height="15" rx="8" />
   </svg>
 </button>

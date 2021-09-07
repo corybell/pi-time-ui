@@ -1,24 +1,18 @@
 import { writable, get, derived } from "svelte/store"
-import { writable as lsWritable } from 'svelte-local-storage-store'
+import { writable as lsWritable } from "svelte-local-storage-store"
 
 export const isEditActiveDrawerOpen = writable(false)
 export const editingHostIndex = writable(undefined)
 
-export const activeHostIndex = lsWritable('PI_TIME_HOST_ACTIVE', 0)
-export const hostStore0 = lsWritable('PI_TIME_HOST_0', '')
-export const hostStore1 = lsWritable('PI_TIME_HOST_1', '')
-export const hostStore2 = lsWritable('PI_TIME_HOST_2', '')
-export const hostStore3 = lsWritable('PI_TIME_HOST_3', '')
+export const activeHostIndex = lsWritable("PI_TIME_HOST_ACTIVE", 0)
+export const hostStore0 = lsWritable("PI_TIME_HOST_0", "")
+export const hostStore1 = lsWritable("PI_TIME_HOST_1", "")
+export const hostStore2 = lsWritable("PI_TIME_HOST_2", "")
+export const hostStore3 = lsWritable("PI_TIME_HOST_3", "")
 
 export const activeHostName = derived(
-	[
-    activeHostIndex,
-    hostStore0,
-    hostStore1,
-    hostStore2,
-    hostStore3,
-  ],
-	([$activeHostIndex, $hostStore0, $hostStore1, $hostStore2, $hostStore3]) => {
+  [activeHostIndex, hostStore0, hostStore1, hostStore2, hostStore3],
+  ([$activeHostIndex, $hostStore0, $hostStore1, $hostStore2, $hostStore3]) => {
     if ($activeHostIndex === 0) {
       return $hostStore0
     }
@@ -52,14 +46,11 @@ export const getHostStore = (i) => {
 export const setHostStore = (i, val) => {
   if (i === 0) {
     hostStore0.set(val)
-  }
-  else if (i === 1) {
+  } else if (i === 1) {
     hostStore1.set(val)
-  }
-  else if (i === 2) {
+  } else if (i === 2) {
     hostStore2.set(val)
-  }
-  else if (i === 3) {
+  } else if (i === 3) {
     hostStore3.set(val)
   }
 }

@@ -3,20 +3,16 @@
   export let text
   export let variant
 
-  const variants = [
-    'primary',
-    'secondary',
-    'link',
-  ]
+  const variants = ["primary", "secondary", "link"]
 
   function getClass() {
     if (variant && variants.includes(variant)) {
-      return `btn-${variant}`;
+      return `btn-${variant}`
     }
-    return 'btn-primary'
+    return "btn-primary"
   }
 </script>
-  
+
 <style>
   .btn-primary {
     color: #fff;

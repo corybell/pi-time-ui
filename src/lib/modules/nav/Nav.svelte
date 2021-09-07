@@ -7,20 +7,20 @@
   import { isNavOpen } from "$lib/store/store"
 
   const homeRoute = {
-    href: '/',
-    text: 'Home',
+    href: "/",
+    text: "Home",
     icon: HomeIcon,
   }
 
   const links = [
     {
-      href: '/host',
-      text: 'Host',
+      href: "/host",
+      text: "Host",
       icon: PiIcon,
     },
     {
-      href: '/relay',
-      text: 'Relays',
+      href: "/relay",
+      text: "Relays",
       icon: RelayIcon,
     },
   ]
@@ -34,7 +34,7 @@
   nav {
     padding: 2rem 0;
   }
-  
+
   li a.active,
   li:hover {
     background-color: var(--color-primary);
@@ -68,37 +68,37 @@
   }
 </style>
 
-<Drawer bind:isOpen={$isNavOpen} handleCancel={closeDrawer} >
+<Drawer bind:isOpen={$isNavOpen} handleCancel={closeDrawer}>
   <nav>
     <ul>
       <li>
-        <a 
-            class={$page.path === homeRoute.href ? "active" : ""} 
-            href={homeRoute.href} 
-            on:click={closeDrawer}
-          >
-            <span class="linkIcon">
-              <svelte:component this={homeRoute.icon}/>
-            </span>
-            <span>{homeRoute.text}</span>
-          </a>
+        <a
+          class={$page.path === homeRoute.href ? "active" : ""}
+          href={homeRoute.href}
+          on:click={closeDrawer}
+        >
+          <span class="linkIcon">
+            <svelte:component this={homeRoute.icon} />
+          </span>
+          <span>{homeRoute.text}</span>
+        </a>
       </li>
     </ul>
     <hr />
     <ul>
       {#each links as link}
         <li>
-          <a 
-            class={$page.path === link.href ? "active" : ""} 
-            href={link.href} 
+          <a
+            class={$page.path === link.href ? "active" : ""}
+            href={link.href}
             on:click={closeDrawer}
           >
             <span class="linkIcon">
-              <svelte:component this={link.icon}/>
+              <svelte:component this={link.icon} />
             </span>
             <span>{link.text}</span>
           </a>
-        </li>  
+        </li>
       {/each}
     </ul>
   </nav>

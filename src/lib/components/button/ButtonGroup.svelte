@@ -1,4 +1,3 @@
-  
 <style>
   .btn-container {
     display: flex;
@@ -10,7 +9,7 @@
 </style>
 
 <div class="btn-container">
-  <slot name="left"></slot>
+  <slot name="left" />
   <div class="spacer" />
-  <slot name="right"></slot>
+  <slot name="right" />
 </div>

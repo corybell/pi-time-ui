@@ -8,7 +8,9 @@
 
   const id = `select-${label}`
 
-  const _options = blank ? [{ value: undefined, label: "" }, ...options] : [...options]
+  const _options = blank
+    ? [{ value: undefined, label: "" }, ...options]
+    : [...options]
 </script>
 
 <style>
