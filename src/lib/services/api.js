@@ -25,3 +25,14 @@ export async function putRelay(host, id, data) {
     return undefined
   }
 }
+
+export async function getRelays(host) {
+  if (!host) {
+    return undefined
+  }
+  try {
+    return await fetch(`${host}/relay`)
+  } catch (error) {
+    return undefined
+  }
+}

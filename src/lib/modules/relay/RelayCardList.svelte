@@ -2,12 +2,6 @@
   import RelayCard from "$lib/modules/relay/RelayCard.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
   import { relays } from "$lib/store/store"
-
-  let _relays = []
-
-  relays.subscribe((value) => {
-    _relays = value
-  })
 </script>
 
 <style>
@@ -22,7 +16,7 @@
 </style>
 
 <div class="relay-list">
-  {#each _relays as relay}
+  {#each $relays as relay}
     <RelayCard {relay} />
   {:else}
     <!-- this block renders when photos.length === 0 -->

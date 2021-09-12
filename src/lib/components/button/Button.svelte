@@ -29,6 +29,7 @@
     padding: 0;
     border-bottom: 2px solid transparent;
     text-transform: none;
+    flex: unset;
   }
   .btn-link:hover,
   .btn-link:focus {
