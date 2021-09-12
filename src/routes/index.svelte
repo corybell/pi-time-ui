@@ -8,7 +8,7 @@
   import RelaySettingsDrawer from "$lib/modules/relay/RelaySettingsDrawer.svelte"
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import {
-    relays,
+    activeRelays,
     hoursList,
     minutesList,
     hoursDict,
@@ -23,8 +23,8 @@
       console.log("hydrate failed")
       return
     }
-    const { relays: relayData, hours, minutes } = await response.json()
-    relays.set(relayData)
+    const { relays, hours, minutes } = await response.json()
+    activeRelays.set(relays)
     hoursList.set(hours.list)
     minutesList.set(minutes.list)
     hoursDict.set(hours.dict)

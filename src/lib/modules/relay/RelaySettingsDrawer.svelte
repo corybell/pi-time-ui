@@ -6,7 +6,7 @@
   import ButtonGroup from "$lib/components/button/ButtonGroup.svelte"
   import {
     relayDetailId,
-    relays,
+    activeRelays,
     hoursList,
     minutesList,
   } from "$lib/store/store"
@@ -24,7 +24,7 @@
     }
 
     isOpen = true
-    const relay = $relays.find((r) => r.id === id)
+    const relay = $activeRelays.find((r) => r.id === id)
     idValue = relay?.id
     nameValue = relay?.name
     hourValue = relay?.timer?.hr
@@ -57,10 +57,10 @@
       return
     }
     // update store with new relay data
-    const newRelays = $relays.map((r) => {
+    const newRelays = $activeRelays.map((r) => {
       return r.id === idValue ? { id: idValue, ...data } : r
     })
-    relays.set(newRelays)
+    activeRelays.set(newRelays)
 
     closeDrawer()
   }

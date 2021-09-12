@@ -1,7 +1,7 @@
 <script>
   import RelayCard from "$lib/modules/relay/RelayCard.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
-  import { relays } from "$lib/store/store"
+  import { activeRelays } from "$lib/store/store"
 </script>
 
 <style>
@@ -15,9 +15,9 @@
   }
 </style>
 
-<Spinner loading={!$relays.length} />
+<Spinner loading={!$activeRelays.length} />
 <div class="relay-list">
-  {#each $relays as relay}
+  {#each $activeRelays as relay}
     <RelayCard {relay} />
   {/each}
 </div>

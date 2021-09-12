@@ -9,8 +9,8 @@
   import RelayListItem from "$lib/modules/relay/RelayListItem.svelte"
   import { getRelays } from "$lib/services/api"
   import { activeHostName } from "$lib/store/hostStore"
-
-  let relays = []
+  import { supportedRelays } from "$lib/store/store"
+  import { putRelay }  from "$lib/services/api"
 
   onMount(async () => {
     const response = await getRelays($activeHostName)
@@ -18,17 +18,27 @@
       console.log("getRelays failed")
       return
     }
-    relays = await response.json()
+    const relays = await response.json()
+    supportedRelays.set(relays)
   })
 
-  function handleClick (active) {
-    console.log(active)
+  async function toggleActive(relay) {
+    const newRelay = {
+      ...relay,
+      active: !relay.active,
+    }
+    
+    const response = await putRelay($activeHostName, relay.id, newRelay)
+    
+    if (response?.status !== 200) {
+      console.log("putRelay failed")
+      return
+    }
+
+    const newStore = $supportedRelays.map(r => r.id === relay.id ? newRelay : r)
+    supportedRelays.set(newStore)
   }
 </script>
-
-<style>
-  
-</style>
 
 <svelte:head>
   <title>Pi Time</title>
@@ -36,14 +46,10 @@
 
 <section>
   <PageTitle title="Relays" />
-  <Spinner loading={!relays.length} />
+  <Spinner loading={!$supportedRelays.length} />
   <ul>
-    {#each relays as relay}
-      <RelayListItem 
-        id={relay.id}
-        active={relay.active}
-        handleClick={handleClick} 
-      />
+    {#each $supportedRelays as relay}
+      <RelayListItem relay={relay} {toggleActive} />
     {/each}
   </ul>
 </section>

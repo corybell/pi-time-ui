@@ -1,15 +1,25 @@
 <script>
   import Button from "$lib/components/button/Button.svelte"
   import Badge from "$lib/components/badge/Badge.svelte"
+  import SpinnerIcon from "$lib/components/icon/SpinnerIcon.svelte"
 
-  export let id
-  export let active
-  export let handleClick
+  export let relay
+  export let toggleActive
+  let loading = false
+
+  async function handleClick () {
+    loading = true
+    
+    await toggleActive(relay)
+
+    loading = false
+  }
 </script>
 
 <style>
   li {
     display: flex;
+    align-items: center;
     padding: 1rem;
     margin: 1rem 2rem;
     background-color: var(--color-white);
@@ -24,14 +34,18 @@
 </style>
 
 <li>
-  <h4>{id}</h4>
-  {#if active}
+  <h4>{relay.id}</h4>
+  {#if relay.active}
     <Badge text="ACTIVE" />
   {/if}
   <div class="spacer" />
-  <Button 
-    variant="link" 
-    text={active ? "Deactivate" : "Activate"} 
-    handleClick={() => handleClick(active)} 
-  />
+  {#if loading}
+    <SpinnerIcon size={20} />
+  {:else}
+    <Button 
+      variant="link" 
+      text={relay.active ? "Deactivate" : "Activate"} 
+      {handleClick} 
+    />
+  {/if}
 </li>
