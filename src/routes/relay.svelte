@@ -7,6 +7,7 @@
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import Button from "$lib/components/button/Button.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
+  import Badge from "$lib/components/badge/Badge.svelte"
   import { getRelays } from "$lib/services/api"
   import { activeHostName } from "$lib/store/hostStore"
 
@@ -37,15 +38,6 @@
   .spacer {
     flex-grow: 1;
   }
-  .active {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    font-weight: var(--font-weight-black);
-    font-size: 12px;
-    padding: 0.5rem;
-    width: fit-content;
-    border-radius: 500px;
-  }
   h4 {
     width: unset;
     margin-right: 1rem;
@@ -63,7 +55,7 @@
       <li>
         <h4>{relay.id}</h4>
         {#if relay.active}
-          <div class="active">ACTIVE</div>
+          <Badge text="ACTIVE" />
         {/if}
         <div class="spacer" />
         <Button variant="link" text={relay.active ? "Deactivate" : "Activate"} {handleClick} />

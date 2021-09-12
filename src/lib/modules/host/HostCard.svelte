@@ -1,5 +1,6 @@
 <script>
   import Button from "$lib/components/button/Button.svelte"
+  import Badge from "$lib/components/badge/Badge.svelte"
 
   export let hostName
   export let isActive
@@ -21,16 +22,6 @@
   .spacer {
     flex-grow: 1;
   }
-
-  .active {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    font-weight: var(--font-weight-black);
-    font-size: 12px;
-    padding: 0.5rem;
-    width: fit-content;
-    border-radius: 500px;
-  }
 </style>
 
 <div class="host">
@@ -40,6 +31,6 @@
     <Button variant="link" text="Edit" {handleClick} />
   </div>
   {#if isActive}
-    <div class="active">ACTIVE</div>
+    <Badge text="ACTIVE" />
   {/if}
 </div>
