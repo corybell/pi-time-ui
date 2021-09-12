@@ -15,11 +15,9 @@
   }
 </style>
 
+<Spinner loading={!$relays.length} />
 <div class="relay-list">
   {#each $relays as relay}
     <RelayCard {relay} />
-  {:else}
-    <!-- this block renders when photos.length === 0 -->
-    <Spinner />
   {/each}
 </div>

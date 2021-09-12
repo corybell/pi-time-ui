@@ -5,9 +5,8 @@
 <script>
   import { onMount } from "svelte"
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
-  import Button from "$lib/components/button/Button.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
-  import Badge from "$lib/components/badge/Badge.svelte"
+  import RelayListItem from "$lib/modules/relay/RelayListItem.svelte"
   import { getRelays } from "$lib/services/api"
   import { activeHostName } from "$lib/store/hostStore"
 
@@ -20,28 +19,15 @@
       return
     }
     relays = await response.json()
-    console.log(relays)
   })
 
-  function handleClick () {
-
+  function handleClick (active) {
+    console.log(active)
   }
 </script>
 
 <style>
-  li {
-    display: flex;
-    padding: 1rem;
-    margin: 1rem 2rem;
-    background-color: var(--color-white);
-  }
-  .spacer {
-    flex-grow: 1;
-  }
-  h4 {
-    width: unset;
-    margin-right: 1rem;
-  }
+  
 </style>
 
 <svelte:head>
@@ -50,18 +36,14 @@
 
 <section>
   <PageTitle title="Relays" />
-  <ul class="relay-list">
+  <Spinner loading={!relays.length} />
+  <ul>
     {#each relays as relay}
-      <li>
-        <h4>{relay.id}</h4>
-        {#if relay.active}
-          <Badge text="ACTIVE" />
-        {/if}
-        <div class="spacer" />
-        <Button variant="link" text={relay.active ? "Deactivate" : "Activate"} {handleClick} />
-      </li>
-    {:else}
-      <Spinner />
+      <RelayListItem 
+        id={relay.id}
+        active={relay.active}
+        handleClick={handleClick} 
+      />
     {/each}
   </ul>
 </section>
