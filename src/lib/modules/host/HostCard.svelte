@@ -8,7 +8,7 @@
 </script>
 
 <style>
-  .host {
+  li {
     padding: 1rem;
     margin: 1rem 2rem;
     background-color: var(--color-white);
@@ -24,7 +24,7 @@
   }
 </style>
 
-<div class="host">
+<li>
   <div class="hostName">
     <h4>{hostName}</h4>
     <div class="spacer" />
@@ -33,4 +33,4 @@
   {#if isActive}
     <Badge text="ACTIVE" />
   {/if}
-</div>
+</li>

@@ -46,7 +46,7 @@
       handleClick={handleEditActiveHostClick}
     />
   </div>
-  <div class="host-list">
+  <ul>
     <HostCard
       hostName={$hostStore0}
       handleClick={makeEditClickHandler(0)}
@@ -67,7 +67,7 @@
       handleClick={makeEditClickHandler(3)}
       isActive={$activeHostIndex === 3}
     />
-  </div>
+  </ul>
 </section>
 <EditHostDrawer />
 <EditActiveHostDrawer />

@@ -8,8 +8,7 @@
 </script>
 
 <style>
-  .relay {
-    display: block;
+  li {
     flex: 1 1;
     min-width: 320px;
     min-height: 200px;
@@ -17,15 +16,15 @@
     margin: 1rem;
     background-color: var(--color-white);
   }
-  .relay:hover {
+  li:hover {
     cursor: pointer;
   }
 </style>
 
-<div class="relay" on:click={onClick(relay.id)}>
+<li class="relay" on:click={onClick(relay.id)}>
   <h4>{`${relay.id} ${relay.name}`}</h4>
   {#if relay.timer}
     <div>HR: {$hoursDict[relay.timer.hr]}</div>
     <div>MIN: {$minutesDict[relay.timer.min]}</div>
   {/if}
-</div>
+</li>

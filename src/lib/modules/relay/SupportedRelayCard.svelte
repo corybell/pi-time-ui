@@ -18,6 +18,7 @@
 
 <style>
   li {
+    height: 64px;
     display: flex;
     align-items: center;
     padding: 1rem;

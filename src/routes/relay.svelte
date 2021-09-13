@@ -6,7 +6,7 @@
   import { onMount } from "svelte"
   import PageTitle from "$lib/components/page-title/PageTitle.svelte"
   import Spinner from "$lib/components/spinner/Spinner.svelte"
-  import RelayListItem from "$lib/modules/relay/RelayListItem.svelte"
+  import SupportedRelayCard from "$lib/modules/relay/SupportedRelayCard.svelte"
   import { getRelays } from "$lib/services/api"
   import { activeHostName } from "$lib/store/hostStore"
   import { supportedRelays } from "$lib/store/store"
@@ -49,7 +49,7 @@
   <Spinner loading={!$supportedRelays.length} />
   <ul>
     {#each $supportedRelays as relay}
-      <RelayListItem relay={relay} {toggleActive} />
+      <SupportedRelayCard relay={relay} {toggleActive} />
     {/each}
   </ul>
 </section>
