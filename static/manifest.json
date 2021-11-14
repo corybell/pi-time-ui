@@ -1,0 +1,16 @@
+{
+  "short_name": "pi-time",
+  "name": "pi-time",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "clock-regular.svg",
+      "sizes": "150x150"
+    }
+  ],
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#ffffff",
+  "description": "IoT Switched Outlet Array"
+}
