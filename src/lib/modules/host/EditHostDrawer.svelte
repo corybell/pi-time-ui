@@ -7,6 +7,7 @@
     editingHostIndex,
     getHostStore,
     setHostStore,
+    isEditHostDrawerOpen,
   } from "$lib/store/hostStore"
 
   let hostValue
@@ -28,7 +29,7 @@
   }
 </style>
 
-<Drawer bind:isOpen={$editingHostIndex} handleCancel={closeDrawer}>
+<Drawer isOpen={$isEditHostDrawerOpen} handleCancel={closeDrawer}>
   <div class="content">
     <h2 class="marginBottom__2">Edit Host</h2>
     <Textbox bind:value={hostValue} label="Host" gutterBottom />

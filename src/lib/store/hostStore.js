@@ -3,6 +3,7 @@ import { writable as lsWritable } from "svelte-local-storage-store"
 
 export const isEditActiveDrawerOpen = writable(false)
 export const editingHostIndex = writable(undefined)
+export const isEditHostDrawerOpen = derived(editingHostIndex, $editingHostIndex => $editingHostIndex !== undefined)
 
 export const activeHostIndex = lsWritable("PI_TIME_HOST_ACTIVE", 0)
 export const hostStore0 = lsWritable("PI_TIME_HOST_0", "")
