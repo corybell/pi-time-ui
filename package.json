@@ -23,6 +23,7 @@
     "@fontsource/montserrat": "^4.5.1",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1",
+    "jsonwebtoken": "^8.5.1",
     "svelte-local-storage-store": "^0.2.4"
   }
 }
