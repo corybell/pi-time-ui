@@ -2,8 +2,8 @@ const jwt   = require('jsonwebtoken')
 
 const { PRIVATE_KEY, PUBLIC_KEY } = process.env
 
-const privatKey = atob(PRIVATE_KEY);
-const publicKey = atob(PUBLIC_KEY);
+const privatKey = Buffer.from(PRIVATE_KEY, 'base64').toString()
+const publicKey = Buffer.from(PUBLIC_KEY, 'base64').toString()
 
 const signOptions = {
   issuer: "authorization/token",
