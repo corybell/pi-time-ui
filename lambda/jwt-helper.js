@@ -2,6 +2,9 @@ const jwt   = require('jsonwebtoken')
 
 const { PRIVATE_KEY, PUBLIC_KEY } = process.env
 
+const privatKey = atob(PRIVATE_KEY);
+const publicKey = atob(PUBLIC_KEY);
+
 const signOptions = {
   issuer: "authorization/token",
   subject: "boo@pi-time.netlify.app", 
@@ -18,12 +21,12 @@ const verifyOptions = {
 }
 
 function sign (payload) {
-  return jwt.sign(payload, PRIVATE_KEY, signOptions)
+  return jwt.sign(payload, privatKey, signOptions)
 }
 
 function verify (token) {
   try {
-    return jwt.verify(token, PUBLIC_KEY, verifyOptions)
+    return jwt.verify(token, publicKey, verifyOptions)
   } catch (err){
     return false
   }
