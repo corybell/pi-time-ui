@@ -1,12 +1,6 @@
 const jwt   = require('jsonwebtoken')
 
-const privateKEY = `
-fill this in
-`
-
-const publicKEY = `
-fill this in
-`
+const { PRIVATE_KEY, PUBLIC_KEY } = process.env
 
 const signOptions = {
   issuer: "authorization/token",
@@ -24,12 +18,12 @@ const verifyOptions = {
 }
 
 function sign (payload) {
-  return jwt.sign(payload, privateKEY, signOptions)
+  return jwt.sign(payload, PRIVATE_KEY, signOptions)
 }
 
 function verify (token) {
   try {
-    return jwt.verify(token, publicKEY, verifyOptions)
+    return jwt.verify(token, PUBLIC_KEY, verifyOptions)
   } catch (err){
     return false
   }
