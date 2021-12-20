@@ -2,15 +2,15 @@ const jwt = require('../jwt-helper')
 const { errorResponse, successResponse } = require('../response-helper')
 
 exports.handler = async (event) => {
-  if (!event.headers || !event.headers.Authorization) {
-    return errorResponse(401, 'Missing headers')
+  if (!event.queryStringParameters || !event.queryStringParameters.token) {
+    return errorResponse(401, 'Missing qs')
   }
   
-  if (!event.headers.Authorization) {
-    return errorResponse(401, 'Missing auth header')
+  if (!event.queryStringParameters.token) {
+    return errorResponse(401, 'Missing header')
   }
 
-  const token = event.headers.Authorization.replace('Bearer ')
+  const { token } = event.queryStringParameters
 
   const result = jwt.verify(token)
   if (!result) {
