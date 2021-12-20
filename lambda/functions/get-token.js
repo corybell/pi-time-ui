@@ -1,7 +1,7 @@
 const jwt = require('../jwt-helper')
 const { errorResponse, successResponse } = require('../response-helper')
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return errorResponse(405, 'Method Not Allowed')
   }

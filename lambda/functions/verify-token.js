@@ -1,19 +1,18 @@
 const jwt = require('../jwt-helper')
 const { errorResponse, successResponse } = require('../response-helper')
 
-exports.handler = async (event, context) => {
-  if (event.httpMethod !== "POST") {
-    return errorResponse(405, 'Method Not Allowed')
+exports.handler = async (event) => {
+  if (!event.headers || !event.headers.Authorization) {
+    return errorResponse(401, 'Unauthorized')
   }
 
-  const params = JSON.parse(event.body);
-  
-  if (!params || !params.token) {
-    return errorResponse(400, 'Bad Request')
+  const token = event.headers.Authorization.replace('Bearer ')
+
+  const result = jwt.verify(token)
+  if (!result) {
+    return errorResponse(401, 'Unauthorized')
   }
-  
-  const token = jwt.verify(params.token)
-  
-  return successResponse({ token })
+
+  return successResponse({ })
 }
   
