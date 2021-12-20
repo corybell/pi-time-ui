@@ -2,3 +2,8 @@
   command = "npm run build"
   publish = "build"
   functions = "lambda/functions" #  netlify-lambda reads this
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Authorization
