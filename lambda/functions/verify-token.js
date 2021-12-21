@@ -11,9 +11,8 @@ exports.handler = async (event) => {
   }
 
   const token = event.headers.authorization.replace('Bearer ', '')
-  console.log('TOKEN', token)
+
   const result = jwt.verify(token)
-  console.log('RESULT', result)
   if (!result) {
     return errorResponse(401, 'Invalid token')
   }
