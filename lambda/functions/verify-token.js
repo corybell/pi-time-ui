@@ -2,21 +2,20 @@ const jwt = require('../jwt-helper')
 const { errorResponse, successResponse } = require('../response-helper')
 
 exports.handler = async (event) => {
-  console.log(event.headers)
-  // if (!event.queryStringParameters || !event.queryStringParameters.token) {
-  //   return errorResponse(401, 'Missing qs')
-  // }
-  
-  // if (!event.queryStringParameters.token) {
-  //   return errorResponse(401, 'Missing header')
-  // }
+  if (!event.headers) {
+    return errorResponse(401, 'Missing headers')
+  }
 
-  // const { token } = event.queryStringParameters
+  if (!event.headers.Authorization) {
+    return errorResponse(401, 'Missing auth header')
+  }
 
-  // const result = jwt.verify(token)
-  // if (!result) {
-  //   return errorResponse(401, `Result ${result}`)
-  // }
+  const token = event.headers.Authorization.replace('Bearer ')
+
+  const result = jwt.verify(token)
+  if (!result) {
+    return errorResponse(401, 'Invalid token')
+  }
 
   return successResponse({ })
 }
