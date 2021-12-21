@@ -5,12 +5,12 @@ exports.handler = async (event) => {
   if (!event.headers) {
     return errorResponse(401, 'Missing headers')
   }
-  console.log(event.headers)
-  if (!event.headers.Authorization) {
+
+  if (!event.headers.authorization) {
     return errorResponse(401, 'Missing auth header')
   }
 
-  const token = event.headers.Authorization.replace('Bearer ')
+  const token = event.headers.authorization.replace('Bearer ')
 
   const result = jwt.verify(token)
   if (!result) {
