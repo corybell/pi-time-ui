@@ -5,7 +5,7 @@ exports.handler = async (event) => {
   if (!event.headers) {
     return errorResponse(401, 'Missing headers')
   }
-
+  console.log(event.headers)
   if (!event.headers.Authorization) {
     return errorResponse(401, 'Missing auth header')
   }
