@@ -10,7 +10,7 @@ exports.handler = async (event) => {
     return errorResponse(401, 'Missing auth header')
   }
 
-  const token = event.headers.authorization.replace('Bearer ')
+  const token = event.headers.authorization.replace('Bearer ', '')
   console.log('TOKEN', token)
   const result = jwt.verify(token)
   console.log('RESULT', result)
