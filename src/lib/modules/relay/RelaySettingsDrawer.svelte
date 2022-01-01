@@ -51,8 +51,7 @@
       },
     }
     const response = await putRelay($activeHostName, idValue, data)
-    // handle response errors
-    if (response.status !== 200) {
+    if (!response) {
       console.log("putRelay failed")
       return
     }
