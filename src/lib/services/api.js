@@ -1,38 +1,34 @@
+import { get, put } from './http'
+
 export async function hydrate(host) {
   if (!host) {
     return undefined
   }
-  try {
-    return await fetch(`${host}/hydrate`)
-  } catch (error) {
+  const response = await get(`${host}/hydrate`)
+  if (!response.success || !response.data) {
     return undefined
   }
+  return response.data
 }
 
 export async function putRelay(host, id, data) {
   if (!host) {
     return undefined
   }
-  try {
-    return await fetch(`${host}/relay/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-  } catch (error) {
+  const response = await put(`${host}/relay/${id}`, data)
+  if (!response.success || !response.data) {
     return undefined
   }
+  return response.data
 }
 
 export async function getRelays(host) {
   if (!host) {
     return undefined
   }
-  try {
-    return await fetch(`${host}/relay`)
-  } catch (error) {
+  const response = await get(`${host}/relay`)
+  if (!response.success || !response.data) {
     return undefined
   }
+  return response.data
 }

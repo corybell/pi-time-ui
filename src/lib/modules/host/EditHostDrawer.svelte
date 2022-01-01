@@ -7,11 +7,17 @@
     editingHostIndex,
     getHostStore,
     setHostStore,
+    getHostKey,
+    setHostKey,
     isEditHostDrawerOpen,
   } from "$lib/store/hostStore"
+  import { authorize } from "$lib/services/auth"
 
   let hostValue
   $: hostValue = getHostStore($editingHostIndex)
+
+  let hostKey
+  $: hostKey = getHostKey($editingHostIndex)
 
   function closeDrawer() {
     editingHostIndex.set(undefined)
@@ -19,7 +25,14 @@
 
   function handleSave() {
     setHostStore($editingHostIndex, hostValue)
-    closeDrawer()
+    setHostKey($editingHostIndex, hostKey)
+
+    if (authorize(hostKey)) {
+      closeDrawer()
+      return
+    }
+
+    console.log('Auth failed')
   }
 </script>
 
@@ -33,6 +46,7 @@
   <div class="content">
     <h2 class="marginBottom__2">Edit Host</h2>
     <Textbox bind:value={hostValue} label="Host" gutterBottom />
+    <Textbox bind:value={hostKey} label="API Key" gutterBottom />
     <ButtonGroup>
       <Button
         slot="left"

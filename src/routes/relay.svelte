@@ -13,12 +13,11 @@
   import { putRelay }  from "$lib/services/api"
 
   onMount(async () => {
-    const response = await getRelays($activeHostName)
-    if (response?.status !== 200) {
+    const relays = await getRelays($activeHostName)
+    if (!relays) {
       console.log("getRelays failed")
       return
     }
-    const relays = await response.json()
     supportedRelays.set(relays)
   })
 
@@ -30,7 +29,7 @@
     
     const response = await putRelay($activeHostName, relay.id, newRelay)
     
-    if (response?.status !== 200) {
+    if (!response) {
       console.log("putRelay failed")
       return
     }

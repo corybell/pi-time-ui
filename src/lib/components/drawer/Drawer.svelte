@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    width: fit-content;
+    max-width: 600px;
   }
   .overlay {
     z-index: 1000;

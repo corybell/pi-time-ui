@@ -20,11 +20,11 @@
 
   onMount(async () => {
     const response = await hydrate($activeHostName)
-    if (response?.status !== 200) {
+    if (!response) {
       console.log("hydrate failed")
       return
     }
-    const { relays, hours, minutes } = await response.json()
+    const { relays, hours, minutes } = response
     activeRelays.set(relays)
     hoursList.set(hours.list)
     minutesList.set(minutes.list)
